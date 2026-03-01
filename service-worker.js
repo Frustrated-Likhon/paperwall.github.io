@@ -9,7 +9,7 @@ const urlsToCache = [
   '/android-chrome-512x512.png'
 ];
 
-// Install service worker and cache files
+
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -17,7 +17,7 @@ self.addEventListener('install', event => {
   );
 });
 
-// Serve cached content when offline
+
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
@@ -25,7 +25,7 @@ self.addEventListener('fetch', event => {
   );
 });
 
-// Clean up old caches when new version is activated
+
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames => {
